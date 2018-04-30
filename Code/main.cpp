@@ -1,23 +1,28 @@
 #include <iostream>
-#include "motMystere.h"
+//#include "brouillage.h"
 #include "verification.h"
 
 using namespace std;
 
+string mot; //mot à découvrir, saisie du P1
+string motMystere; //mot saisi par P1 après brouillage
+string reponse; //mot saisi par P2, si identique à "mot", alors P2 gagne
+bool gagne(false);//P2 a-t-il gagné ?
+
 int main()
 {
-    string mot;
-    string reponse;
     cout << "Veuillez saisir un mot :" << endl;
     cin>>mot;
-    //string motMystere(mot);
+    //motMystere=brouillage(mot);
 
     do
     {
         //cout<<motMystere<<end;
+        cout<<"Quel est le mot à deviner ?"<<endl;
         cin>>reponse;
-        bool verification(reponse, mot);
+        gagne=verification(reponse, mot);
     }
-    while (verification=false);
+    while (gagne=false);
+
     return 0;
 }
