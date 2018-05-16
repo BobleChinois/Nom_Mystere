@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1526461482 source:/home/sosthene/Github/Nom_Mystere.git/Code/main.cpp
+	<fstream>
+	"brouillage.h"
+	"verification.h"
+
+1526461272 /home/sosthene/Github/Nom_Mystere.git/Code/verification.h
+	<iostream>
+
+1526462229 source:/home/sosthene/Github/Nom_Mystere.git/Code/verification.cpp
+	"verification.h"
+
+1526461707 source:/home/sosthene/Github/Nom_Mystere.git/Code/brouillage.cpp
+	"brouillage.h"
+
+1526461313 /home/sosthene/Github/Nom_Mystere.git/Code/brouillage.h
+	<iostream>
+	<string>
+	<ctime>
+	<cstdlib>
+

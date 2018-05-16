@@ -1,7 +1,4 @@
-#include <iostream>
-#include <string>
-#include <ctime>
-#include <cstdlib>
+#include "brouillage.h"
 
 using namespace std;
 
