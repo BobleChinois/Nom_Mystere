@@ -35,8 +35,8 @@
 		<Unit filename="brouillage.cpp" />
 		<Unit filename="brouillage.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="verification.cpp" />
-		<Unit filename="verification.h" />
+		<Unit filename="rafraichissement.cpp" />
+		<Unit filename="rafraichissement.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
