@@ -16,7 +16,7 @@ int main()
 {
     do //boucle qui permet de refaire une partie
     {
-        cout<<"Nombre de joueurs :"<<"1 ou 2 ?"<<endl;
+        cout << "Nombre de joueurs :" << "1 ou 2 ?" << endl;
         cin >> nbreJoueurs;
 
         switch(nbreJoueurs)
@@ -25,25 +25,40 @@ int main()
             {
                 cout << "Veuillez saisir un mot :" << endl;
                 cin >> mot;
-                void rafraichissement();
+                rafraichissement();
                 break;
             }
-
             case 1:
             {
                 srand(time(0));
                 ifstream listeMot("../dico.txt");
                 int taille;
+                char lettre;
 
                 listeMot.seekg(0,ios::end);//on déplace le curseur à la fin du fichier
                 taille=listeMot.tellg();//on enregistre le nombre total de caractères du fichier
 
                 if (listeMot)//on ouvre le fichier de la liste de mots
                 {
-                    listeMot.seekg(rand()%taille,ios::beg);//on déplace le curseur sur un emplace aléatoire en partant du début du fichier
-                    listeMot>>mot;//on importe un premier mot
-                    listeMot>>mot;//puis un 2eme pour être sûr de ne pas avoir un mot coupé en 2
+                    listeMot.seekg(rand()%taille,ios::beg);//on déplace le curseur sur un emplacement aléatoire en partant du début du fichier
+                    listeMot.get(lettre);
+                    cout << lettre << endl;
 
+                    if (lettre != '/n')
+                    {
+                        do
+                        {
+                            listeMot.unget();
+                            listeMot.get(lettre);
+                        }
+                        while (lettre != '/n');
+                    }
+                    else
+                    {
+                        listeMot >> mot;
+                    }
+
+                    listeMot >> mot;//on importe le prochain mot de la liste
                 }
 
                 else
@@ -53,16 +68,15 @@ int main()
                 }
                 break;
             }
-
-            default: //en cas de saisie invalide
+            default : //en cas de saisie invalide
             {
                 cout<<"Erreur"<<endl;
                 return 0;
             }
         }
 
-        motMystere=brouillage(mot);
-        essais=5;
+        motMystere = brouillage(mot);
+        essais = 5;
 
         do //boucle tant que P2 n'a pas trouvé le mot et qu'il n'a pas utilisé tous ses essais
         {
@@ -73,7 +87,7 @@ int main()
             essais--;
             gagne = reponse == mot;
         }
-        while (gagne!=true && essais>0);
+        while (gagne != true && essais > 0);
 
 
         if (gagne == true)
@@ -87,9 +101,9 @@ int main()
 
         cout << "Nouvelle partie ? OUI/NON" << endl;
         cin >> ouiNon;//case sensitive, à améliorer ?
-        void rafraichissement();
+        rafraichissement();
     }
-    while (ouiNon=="OUI");//condition du 1er do
+    while (ouiNon == "OUI");//condition du 1er do
 
     return 0;
 }

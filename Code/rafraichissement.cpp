@@ -8,5 +8,6 @@ void rafraichissement()
     {
         cout << endl;
     }
+    return;
 }
 
