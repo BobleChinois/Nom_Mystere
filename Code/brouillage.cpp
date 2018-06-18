@@ -8,10 +8,10 @@ string brouillage(string mot)
     string enigme("");//déclaration de la variable retournée par la fonction
     int lettre;//position de la lettre dans le mot à brouiller
 
-    while (mot.size()!=0)//tant qu'il reste des lettres dans le mot d'origine
+    while (mot.size() != 0)//tant qu'il reste des lettres dans le mot d'origine
     {
-        lettre=rand()%mot.size();//on sélectionne une lettre au hasard
-        enigme+=mot[lettre];//on ajoute cette lettre au mot à renvoyer par la fonction
+        lettre = rand()%mot.size();//on sélectionne une lettre au hasard
+        enigme += mot[lettre];//on ajoute cette lettre au mot à renvoyer par la fonction
         mot.erase(lettre,1);//on efface la lettre que l'on vient d'ajouter pour éviter de l'utiliser à nouveau
     }
 

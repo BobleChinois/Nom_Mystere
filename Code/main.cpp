@@ -42,23 +42,21 @@ int main()
                 {
                     listeMot.seekg(rand()%taille,ios::beg);//on déplace le curseur sur un emplacement aléatoire en partant du début du fichier
                     listeMot.get(lettre);
-                    cout << lettre << endl;
 
-                    if (lettre != '/n')
+                    while (lettre != '\n' && !listeMot.eof())
                     {
-                        do
-                        {
-                            listeMot.unget();
-                            listeMot.get(lettre);
-                        }
-                        while (lettre != '/n');
-                    }
-                    else
-                    {
-                        listeMot >> mot;
+                        listeMot.get(lettre);
+                        listeMot.unget();
+                        listeMot.unget();
+                        cout << listeMot.eof() << endl;
                     }
 
-                    listeMot >> mot;//on importe le prochain mot de la liste
+                    listeMot.get(lettre);
+                    listeMot.get(lettre);
+                    listeMot >> mot;
+
+                    cout << mot << endl;
+
                 }
 
                 else
@@ -76,6 +74,7 @@ int main()
         }
 
         motMystere = brouillage(mot);
+        cout << mot << endl;
         essais = 5;
 
         do //boucle tant que P2 n'a pas trouvé le mot et qu'il n'a pas utilisé tous ses essais
