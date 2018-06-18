@@ -41,18 +41,13 @@ int main()
                 if (listeMot)//on ouvre le fichier de la liste de mots
                 {
                     listeMot.seekg(rand()%taille,ios::beg);//on déplace le curseur sur un emplacement aléatoire en partant du début du fichier
-                    listeMot.get(lettre);
 
-                    while (lettre != '\n' && !listeMot.eof())
+                    while (listeMot.peek() != '\n' && !listeMot.eof())
                     {
-                        listeMot.get(lettre);
-                        listeMot.unget();
                         listeMot.unget();
                         cout << listeMot.eof() << endl;
                     }
-
-                    listeMot.get(lettre);
-                    listeMot.get(lettre);
+                    listeMot.get();
                     listeMot >> mot;
 
                     cout << mot << endl;
